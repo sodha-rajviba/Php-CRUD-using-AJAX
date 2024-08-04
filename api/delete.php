@@ -2,11 +2,11 @@
 
 header("Content-type:application/json");
 
-$id=$_POST['id'];
+$id=$_POST['Id'];
 
 require "../includes/connection.php";
 
-$query="DELETE FROM `User` WHERE `Id`=(?);";
+$query="DELETE FROM `User` WHERE `Id`= ? ";
 $params=[$id];
 
 $statement=$connection->prepare($query);

@@ -1,13 +1,13 @@
 <?php 
 
-header("Content-type:application/json");
+ header("Content-type:application/json");
 
 $username=$_POST['username'];
 $password=$_POST['password'];
 
 require "../includes/connection.php";
 
-$query="INSERT INTO `User`(`Username`,`Password`) VALUES (?,?);";
+$query="INSERT INTO `User`(`Username`,`Password`) VALUES (?,?)";
 $params = [$username, $password];
 
 $statement = $connection->prepare($query);

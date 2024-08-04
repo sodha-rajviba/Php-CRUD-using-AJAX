@@ -9,7 +9,7 @@ $password=$_POST['password'];
 require "../includes/connection.php";
 
 $query="UPDATE `User` SET Username=(?), Password=(?) WHERE Id=(?)";
-$params = [$id,$username,$password];
+$params = [$username,$password,$id];
 
 $statement = $connection->prepare($query);
 $row = $statement->execute($params);
