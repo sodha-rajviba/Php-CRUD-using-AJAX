@@ -18,7 +18,7 @@
 
     let data = {
     username: $('#username').val(),
-    password: $('#password').val(),
+    password: $('#password').val()
     }
 
     $.ajax({
@@ -26,7 +26,8 @@
     type: "POST",
     data: data,
     success: function(response) {
-        alert("Data inserted successfully");
+        //alert("Data inserted successfully");
+        console.log(response.success);
         $('#username').val('');
         $('#password').val('');
         $('#username').focus();

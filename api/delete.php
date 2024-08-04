@@ -1,19 +1,21 @@
 <?php 
 
+header("Content-type:application/json");
+
 $id=$_POST['id'];
 
 require "../includes/connection.php";
 
-$query="DELETE FROM `User` WHERE Id = ?";
-$params = [$id];
+$query="DELETE FROM `User` WHERE `Id`=(?);";
+$params=[$id];
 
-$statement = $connection->prepare($query);
-$row = $statement->execute($params);
+$statement=$connection->prepare($query);
+$row=$statement->execute($params);
 
 if($row>0)
-    return header('Location:../index.php');
+    echo json_encode(['success'=>true]);
 else
-    echo "Error in data deletion.";
+    echo json_encode(['success'=>false]);
 
 
 ?>

@@ -1,5 +1,7 @@
 <?php 
 
+header("Content-type:application/json");
+
 $username=$_POST['username'];
 $password=$_POST['password'];
 
@@ -12,9 +14,9 @@ $statement = $connection->prepare($query);
 $row = $statement->execute($params);
 
 if($row>0)
-    return header('Location:../index.php');
+    echo json_encode(['success'=>true]);
 else
-    echo "Error in data insertion.";
+    echo json_encode(['success'=>false]);
 
 
 ?>
